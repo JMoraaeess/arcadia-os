@@ -62,23 +62,74 @@ arcadia-os/
 
 ---
 
-## 🛠️ Quick Installation (on Bazzite Linux)
+## 🛠️ Guia de Instalação Passo a Passo (Step-by-Step Guide)
 
-Once you boot into Bazzite on your target machine:
-1. Switch to **Desktop Mode**.
-2. Open the terminal (**Konsole**) and run:
+Siga este roteiro prático para configurar o **ArcadiaOS** no seu PC da sala, mantendo o seu Windows 100% seguro em **Dual-Boot**:
 
-```bash
-git clone https://github.com/JMoraaeess/arcadia-os.git
-cd arcadia-os
-chmod +x scripts/install.sh
-./scripts/install.sh
-```
+### 1️⃣ Passo 1: Baixar a Imagem ISO Oficial (Bazzite Linux)
+Acesse o site oficial: **[bazzite.gg](https://bazzite.gg)**
+* **Hardware:** Selecione `Desktop PC`.
+* **GPU:** 
+  * Para **NVIDIA (GeForce GTX 1060, série 10xx, RTX):** Selecione `NVIDIA` (versão tradicional estável com drivers proprietários — *não selecione a versão -open*).
+  * Para **AMD:** Selecione `AMD`.
+* **Interface Gráfica (DE):** Selecione `KDE Plasma` (recomendado para telas de TV e estabilidade com drivers Nvidia).
+* Clique em **Download ISO**.
 
-Ou via comando rápido de uma linha:
+---
+
+### 2️⃣ Passo 2: Gravar o Pendrive de Inicialização
+1. Baixe o gravador de imagem: **[BalenaEtcher](https://etcher.balena.io/)** ou **[Rufus](https://rufus.ie/)** no Windows.
+2. Conecte um pendrive de pelo menos **8GB**.
+3. Selecione o arquivo ISO baixado e clique em **Flash / Gravar**.
+
+---
+
+### 3️⃣ Passo 3: Instalação Segura no Disco Secundário (Sem apagar o Windows)
+1. Conecte o pendrive no PC e ligue pressionando a tecla de Boot Menu da sua placa-mãe (`F8`, `F11` ou `F12`).
+2. Selecione o pendrive em modo **UEFI**.
+3. Na tela de particionamento e discos do instalador:
+   > [!IMPORTANT]
+   > **Atenção na Seleção do Disco:**  
+   > Escolha exclusivamente o seu **SSD ou HD secundário**. **NÃO selecione o disco do Windows**, garantindo que seus arquivos pessoais e sua instalação original continuem intactos.
+4. Conclua a instalação e reinicie o PC.
+
+---
+
+### 4️⃣ Passo 4: Executar o Instalador de 1 Clique do ArcadiaOS
+Ao entrar no sistema instalado pela primeira vez:
+1. Abra o terminal (**Konsole**) e rode o comando oficial:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/JMoraaeess/arcadia-os/main/scripts/install.sh | bash
 ```
+
+*(Ou via clone manual do repositório):*
+```bash
+git clone https://github.com/JMoraaeess/arcadia-os.git
+cd arcadia-os && chmod +x scripts/install.sh && ./scripts/install.sh
+```
+
+> [!TIP]
+> **O instalador cuida de tudo sozinho:**
+> - 🪟 Configura o **Dual-Boot (ArcadiaOS & Windows)** no menu UEFI com resolução 1080p nítida para TV.
+> - 🔀 Instala o **Arcadia Dual Portal (Tela Dividida)** ao ligar o PC para escolher entre **JOGOS** e **SMART TV**.
+> - 📺 Provisiona o subsistema **Android TV (Waydroid Leanback)** em tela cheia com aceleração gráfica.
+> - 🛡️ Injeta o perfil de hardware **NVIDIA SHIELD TV Pro** para liberar apps de streaming de TV oficiais.
+> - 🏪 Instala as lojas **Google Play Store** (com ativador Play Protect) e **Aurora Store TV**.
+> - ⚡ Configura os drivers de renderização para a sua GPU (com otimização para **NVIDIA GTX 1060**).
+> - 🕹️ Inicia o assistente de pareamento para o seu **Controle Remoto Bluetooth**.
+
+---
+
+### 5️⃣ Passo 5: Como Usar no Dia a Dia da Sala
+
+1. **Ao ligar o PC:**  
+   O menu inicial do GRUB aguarda 5 segundos para você escolher entre **ArcadiaOS** e **Windows Boot Manager** (ele memoriza sua última escolha automaticamente).
+2. **Ao entrar no ArcadiaOS:**  
+   Abre-se o **Dual Portal** em tela dividida:
+   * Escolha **🎮 JOGOS** usando o direcional do Gamepad para abrir o Steam Big Picture / Game Mode.
+   * Escolha **📺 SMART TV** usando o Controle Remoto para abrir o Projectivy Launcher com seus apps de streaming e canais.
+
 
 ---
 
