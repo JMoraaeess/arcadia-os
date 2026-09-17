@@ -79,7 +79,12 @@ mkdir -p "$BUILD_DIR/apks"
 
 # Launcher principal de TV (leve, sem anúncios e com canais dinâmicos)
 log_info "   -> Baixando Projectivy Launcher..."
-curl -sL -o "$BUILD_DIR/apks/Projectivy.apk" "https://github.com/spocky/marmite/releases/latest/download/Projectivy_Launcher.apk" || true
+PROJ_URL=$(curl -s "https://api.github.com/repos/spocky/miproja1/releases/latest" 2>/dev/null | grep -o 'https://[^"]*release\.apk' | head -n1 || echo "")
+if [ -z "$PROJ_URL" ]; then
+    PROJ_URL="https://github.com/spocky/miproja1/releases/download/4.71/ProjectivyLauncher-4.71-c95-xda-release.apk"
+fi
+curl -sL -o "$BUILD_DIR/apks/Projectivy.apk" "$PROJ_URL" || true
+
 
 # Loja de Aplicativos para TV (Aurora Store - Acessa catálogo da Google Play Store com interface de TV)
 log_info "   -> Baixando Aurora Store (Loja de Aplicativos Google Play TV)..."
