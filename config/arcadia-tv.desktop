@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Arcadia TV
+GenericName=Smart TV Media Center
+Comment=Open Arcadia TV Interface for Couch & Remote Control Navigation
+Exec=/usr/local/bin/arcadia-launcher.sh
+Icon=video-television
+Categories=Game;AudioVideo;TV;
+Keywords=android;tv;streaming;netflix;smarttube;chromecast;arcadia;
+Terminal=false
+StartupNotify=true

@@ -1,0 +1,15 @@
+# ==============================================================================
+# ArcadiaOS: Hardware Spoofing Profile (NVIDIA SHIELD Android TV)
+# Target Device: mdarcy (Shield TV Pro / Shield Android TV)
+# Purpose: Enable Android TV Play Store catalog and official TV streaming APKs
+# ==============================================================================
+ro.product.brand=NVIDIA
+ro.product.manufacturer=NVIDIA
+ro.product.model=SHIELD Android TV
+ro.product.name=mdarcy
+ro.product.device=mdarcy
+ro.build.product=mdarcy
+ro.build.description=darcy-user 11 RQ1A.210105.003 7622998_2874.1568 release-keys
+ro.build.fingerprint=NVIDIA/mdarcy/mdarcy:11/RQ1A.210105.003/7622998_2874.1568:user/release-keys
+ro.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi,x86_64,x86
+persist.waydroid.ui=tv
