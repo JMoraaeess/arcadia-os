@@ -37,11 +37,15 @@ waydroid prop set persist.waydroid.height 1080
 waydroid prop set persist.waydroid.dpi 320
 waydroid prop set persist.waydroid.ui tv
 
-# Detecção e compatibilidade com GPUs NVIDIA (ex: GTX 1060 / Pascal)
+# Detecção e compatibilidade automática de GPU (NVIDIA, AMD, Intel e APUs)
 if lspci 2>/dev/null | grep -iE 'vga|3d' | grep -iq nvidia; then
-    log_info "   -> GPU NVIDIA detectada! Otimizando renderizador do Waydroid para compatibilidade máxima..."
+    log_info "   -> GPU NVIDIA detectada! Aplicando perfil de compatibilidade para drivers proprietários..."
     waydroid prop set ro.hardware.gralloc default || true
     waydroid prop set ro.hardware.egl swiftshader || true
+elif lspci 2>/dev/null | grep -iE 'vga|3d' | grep -iqE 'amd|ati|radeon'; then
+    log_info "   -> GPU AMD / APU Ryzen detectada! Utilizando aceleração direta Mesa DRI3/KMS de alta performance."
+elif lspci 2>/dev/null | grep -iE 'vga|3d' | grep -iq intel; then
+    log_info "   -> GPU Intel / Gráficos Integrados detectados! Utilizando aceleração direta Mesa Intel."
 fi
 
 log_info "4. Clonando utilitário de injeção (GApps + libndk + Magisk)..."

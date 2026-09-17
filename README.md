@@ -67,13 +67,27 @@ arcadia-os/
 Siga este roteiro prático para configurar o **ArcadiaOS** no seu PC da sala, mantendo o seu Windows 100% seguro em **Dual-Boot**:
 
 ### 1️⃣ Passo 1: Baixar a Imagem ISO Oficial (Bazzite Linux)
-Acesse o site oficial: **[bazzite.gg](https://bazzite.gg)**
-* **Hardware:** Selecione `Desktop PC`.
-* **GPU:** 
-  * Para **NVIDIA (GeForce GTX 1060, série 10xx, RTX):** Selecione `NVIDIA` (versão tradicional estável com drivers proprietários — *não selecione a versão -open*).
-  * Para **AMD:** Selecione `AMD`.
-* **Interface Gráfica (DE):** Selecione `KDE Plasma` (recomendado para telas de TV e estabilidade com drivers Nvidia).
+Acesse o seletor oficial de imagens em: **[bazzite.gg](https://bazzite.gg)**
+
+* **Tipo de Equipamento (Hardware):**
+  * Selecione **`Desktop PC`** (ou `Handheld PC` se estiver usando um PC portátil como ROG Ally / Legion Go).
+
+* **Escolha da GPU (Conforme o seu computador):**
+  * 🟢 **NVIDIA (GeForce GTX / RTX dedicadas):**  
+    Selecione **`NVIDIA`**.  
+    *(Já vem com os drivers proprietários estáveis da NVIDIA compilados no kernel).*
+  * 🔴 **AMD (Radeon RX dedicada ou APUs Ryzen / Athlon com gráficos integrados Vega / RDNA):**  
+    Selecione **`AMD`**.  
+    *(Utiliza drivers open-source Mesa com suporte nativo a Vulkan e HDR).*
+  * 🔵 **Intel (Placas dedicadas Intel Arc ou Gráficos Integrados Intel UHD / Iris Xe):**  
+    Selecione **`Intel`**.  
+    *(Utiliza os drivers Mesa Intel de alto desempenho).*
+
+* **Interface Gráfica (DE):**  
+  Selecione **`KDE Plasma`** *(recomendado para navegação fluida em TVs, controle remoto e escalabilidade 4K).*
+
 * Clique em **Download ISO**.
+
 
 ---
 
@@ -116,7 +130,7 @@ cd arcadia-os && chmod +x scripts/install.sh && ./scripts/install.sh
 > - 📺 Provisiona o subsistema **Android TV (Waydroid Leanback)** em tela cheia com aceleração gráfica.
 > - 🛡️ Injeta o perfil de hardware **NVIDIA SHIELD TV Pro** para liberar apps de streaming de TV oficiais.
 > - 🏪 Instala as lojas **Google Play Store** (com ativador Play Protect) e **Aurora Store TV**.
-> - ⚡ Configura os drivers de renderização para a sua GPU (com otimização para **NVIDIA GTX 1060**).
+> - ⚡ Configura os drivers e aceleração gráfica automaticamente para sua GPU (NVIDIA, AMD ou Intel).
 > - 🕹️ Inicia o assistente de pareamento para o seu **Controle Remoto Bluetooth**.
 
 ---
@@ -137,7 +151,7 @@ cd arcadia-os && chmod +x scripts/install.sh && ./scripts/install.sh
 
 | Component | Recommendation |
 | :--- | :--- |
-| **GPU** | NVIDIA GeForce (GTX 1060+ / RTX) or AMD Radeon |
+| **GPU / APU** | NVIDIA GeForce (GTX / RTX), AMD Radeon / APU Ryzen, or Intel Arc / Iris Xe |
 | **Storage** | Dedicated 500GB - 1TB+ SSD or HDD |
 | **Controller** | Standard Gamepad (Xbox / PlayStation) for Gaming |
 | **Remote** | Bluetooth TV Remote (G9N9N or compatible BLE remote) |
