@@ -43,9 +43,20 @@ chmod +x "$HOME/.local/share/applications/arcadia-tv.desktop"
 echo -e "${BLUE}[4/5]${NC} Executando provisionamento do Android TV (Waydroid + Spoofing)..."
 bash "$ROOT_DIR/scripts/setup-waydroid-tv.sh"
 
-# 5. Pareamento do Controle
+# 5. Instalar o Seletor de Boot Dividido (Jogos vs SmartTV)
+echo -e "${BLUE}[5/6]${NC} Instalando o Seletor de Inicialização (Arcadia Boot Portal)..."
+mkdir -p "$HOME/.arcadia/bin" "$HOME/.arcadia/portal" "$HOME/.config/autostart"
+cp -r "$ROOT_DIR/portal/"* "$HOME/.arcadia/portal/"
+cp "$ROOT_DIR/bin/"* "$HOME/.arcadia/bin/"
+chmod +x "$HOME/.arcadia/bin/"*.sh
+sudo cp "$ROOT_DIR/bin/arcadia-portal.sh" /usr/local/bin/arcadia-portal || true
+
+# Configurar Autostart para o Seletor abrir ao ligar o PC
+cp "$ROOT_DIR/config/arcadia-portal.desktop" "$HOME/.config/autostart/arcadia-portal.desktop"
+
+# 6. Pareamento do Controle
 echo ""
-echo -e "${BLUE}[5/5]${NC} Deseja parear o controle Bluetooth agora? (s/n)"
+echo -e "${BLUE}[6/6]${NC} Deseja parear o controle Bluetooth agora? (s/n)"
 read -r -p "Escolha: " PAIR_CHOICE
 if [[ "$PAIR_CHOICE" =~ ^[Ss]$ ]]; then
     bash "$ROOT_DIR/scripts/setup-remote.sh"
@@ -56,7 +67,7 @@ echo -e "${GREEN}===============================================================
 echo -e "${GREEN}             🎉 ARCADIAOS INSTALADO COM SUCESSO!                ${NC}"
 echo -e "${GREEN}=================================================================${NC}"
 echo "O sistema está pronto:"
-echo "1. Volte para o 'Modo Game' (Game Mode)."
-echo "2. O atalho 'Arcadia TV' estará na sua biblioteca de jogos."
-echo "3. Use o controle remoto para navegar nos seus canais e streamings!"
+echo "1. Ao ligar o PC, a tela dividida abrirá para escolher JOGOS ou SMART TV."
+echo "2. Você pode navegar com Gamepad (Xbox/PS) ou com o Controle Remoto."
+echo "3. O atalho 'Arcadia TV' também estará na sua biblioteca da Steam."
 echo "================================================================="

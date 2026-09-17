@@ -8,8 +8,10 @@
 
 ## 🌟 Key Features
 
-* **🎮 Native PC Gaming (Console Mode):** Boots straight into a full-screen Game Mode with low-latency controller support, suspend/resume, and native GPU acceleration (Nvidia & AMD).
+* **🔀 Arcadia Dual Portal (Boot Selector):** Splitscreen startup UI on boot to choose between **JOGOS** and **SMART TV** with Gamepad or TV Remote.
+* **🎮 Native PC Gaming (Console Mode):** Boots straight into full-screen Game Mode with low-latency controller support, suspend/resume, and native GPU acceleration (Nvidia & AMD).
 * **📺 Real Android TV Interface:** Runs genuine Android TV applications (Projectivy Launcher, SmartTube 4K, TV streaming APKs) designed specifically for 10-foot TV viewing.
+* **🏪 Native TV App Stores:** Built-in Google Play Store (GApps with Play Protect certification) and Aurora Store TV for zero-friction TV APK downloads.
 * **🕹️ Bluetooth Remote Control First:** Full out-of-the-box support for Bluetooth TV remotes (such as the standard G9N9N Bluetooth remote).
 * **⚡ ARM-to-x86 Translation (`libndk`):** Seamlessly executes ARMv7 / ARM64 Android TV APKs on standard x86_64 PC processors.
 * **🛡️ Hardware Identity Spoofing:** Injects certified TV hardware profiles (NVIDIA SHIELD TV `mdarcy`) to unlock the official TV catalog from the Play Store.
@@ -22,11 +24,16 @@
 ```text
 arcadia-os/
 ├── bin/
-│   └── arcadia-launcher.sh         # Launcher session handler for Game Mode
+│   ├── arcadia-launcher.sh         # Launcher session handler for Waydroid TV
+│   └── arcadia-portal.sh           # Kiosk launcher for the Boot Selector
 ├── config/
+│   ├── arcadia-portal.desktop      # Autostart entry for the boot selector
 │   ├── arcadia-tv.desktop          # Application entry for Game Mode / Desktop
 │   ├── shield-props.prop           # Hardware spoofing profile (NVIDIA Shield TV)
 │   └── 99-bt-remote.rules          # Low-latency udev rules for Bluetooth remotes
+├── portal/
+│   ├── index.html                  # Responsive 4K Split-Screen UI (Gamepad + Remote)
+│   └── server.py                   # Lightweight Python bridge and API server
 ├── scripts/
 │   ├── install.sh                  # Interactive Master Installer (1-click)
 │   ├── setup-waydroid-tv.sh        # Automated Android TV container provisioning
