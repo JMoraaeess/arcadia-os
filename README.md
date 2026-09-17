@@ -1,8 +1,24 @@
-# ArcadiaOS 🏛️🎮📺
+<p align="center">
+  <img src="assets/arcadia-os-logo.jpg" alt="ArcadiaOS Logo" width="380" style="border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);" />
+</p>
 
-> **The Living Room Powerhouse**: Unified PC Console Experience & Native Smart TV Runtime.
+<h1 align="center">ArcadiaOS 🏛️🎮📺</h1>
+
+<p align="center">
+  <strong>The Living Room Powerhouse</strong>: Unified PC Console Experience & Native Smart TV Runtime.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20Bazzite-blue" alt="Platform" />
+  <img src="https://img.shields.io/badge/Architecture-x86__64-orange" alt="Architecture" />
+  <img src="https://img.shields.io/badge/Android%20TV-Waydroid%20Leanback-green" alt="Android TV" />
+  <img src="https://img.shields.io/badge/License-MIT-purple" alt="License" />
+</p>
+
+---
 
 **ArcadiaOS** is an open-source project designed to turn any PC into the ultimate living room console and media center. Built on top of immutable gaming Linux foundations (like Bazzite), ArcadiaOS seamlessly bridges high-performance AAA PC gaming with a dedicated, hardware-accelerated **Android TV runtime (Waydroid Leanback)** for native smart TV streaming apps, full D-pad remote navigation, and hardware spoofing for uncompromised media playback.
+
 
 ---
 
