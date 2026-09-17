@@ -37,6 +37,13 @@ waydroid prop set persist.waydroid.height 1080
 waydroid prop set persist.waydroid.dpi 320
 waydroid prop set persist.waydroid.ui tv
 
+# Detecção e compatibilidade com GPUs NVIDIA (ex: GTX 1060 / Pascal)
+if lspci 2>/dev/null | grep -iE 'vga|3d' | grep -iq nvidia; then
+    log_info "   -> GPU NVIDIA detectada! Otimizando renderizador do Waydroid para compatibilidade máxima..."
+    waydroid prop set ro.hardware.gralloc default || true
+    waydroid prop set ro.hardware.egl swiftshader || true
+fi
+
 log_info "4. Clonando utilitário de injeção (GApps + libndk + Magisk)..."
 cd "$BUILD_DIR"
 if [ ! -d "waydroid_script" ]; then
