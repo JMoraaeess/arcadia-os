@@ -44,10 +44,15 @@ Once you boot into Bazzite on your target machine:
 2. Open the terminal (**Konsole**) and run:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/arcadia-os.git
+git clone https://github.com/JMoraaeess/arcadia-os.git
 cd arcadia-os
 chmod +x scripts/install.sh
 ./scripts/install.sh
+```
+
+Ou via comando rápido de uma linha:
+```bash
+curl -fsSL https://raw.githubusercontent.com/JMoraaeess/arcadia-os/main/scripts/install.sh | bash
 ```
 
 ---
