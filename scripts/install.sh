@@ -54,9 +54,15 @@ sudo cp "$ROOT_DIR/bin/arcadia-portal.sh" /usr/local/bin/arcadia-portal || true
 # Configurar Autostart para o Seletor abrir ao ligar o PC
 cp "$ROOT_DIR/config/arcadia-portal.desktop" "$HOME/.config/autostart/arcadia-portal.desktop"
 
-# 6. Pareamento do Controle
+# 6. Configurar Dual-Boot com Windows no GRUB
+echo -e "${BLUE}[6/7]${NC} Configurando Dual-Boot com Windows no menu UEFI..."
+sudo bash "$ROOT_DIR/scripts/setup-dualboot.sh" || {
+    echo -e "${YELLOW}[AVISO]${NC} Não foi possível configurar o Dual-Boot automaticamente. Execute 'sudo scripts/setup-dualboot.sh' manualmente depois."
+}
+
+# 7. Pareamento do Controle
 echo ""
-echo -e "${BLUE}[6/6]${NC} Deseja parear o controle Bluetooth agora? (s/n)"
+echo -e "${BLUE}[7/7]${NC} Deseja parear o controle Bluetooth agora? (s/n)"
 read -r -p "Escolha: " PAIR_CHOICE
 if [[ "$PAIR_CHOICE" =~ ^[Ss]$ ]]; then
     bash "$ROOT_DIR/scripts/setup-remote.sh"
@@ -67,7 +73,8 @@ echo -e "${GREEN}===============================================================
 echo -e "${GREEN}             🎉 ARCADIAOS INSTALADO COM SUCESSO!                ${NC}"
 echo -e "${GREEN}=================================================================${NC}"
 echo "O sistema está pronto:"
-echo "1. Ao ligar o PC, a tela dividida abrirá para escolher JOGOS ou SMART TV."
-echo "2. Você pode navegar com Gamepad (Xbox/PS) ou com o Controle Remoto."
-echo "3. O atalho 'Arcadia TV' também estará na sua biblioteca da Steam."
+echo "1. Ao ligar o PC, você pode escolher entre 'ArcadiaOS' e 'Windows'."
+echo "2. Ao entrar no ArcadiaOS, a tela dividida abrirá (JOGOS vs SMART TV)."
+echo "3. Você pode navegar com Gamepad (Xbox/PS) ou com o Controle Remoto."
+echo "4. O atalho 'Arcadia TV' também estará na sua biblioteca da Steam."
 echo "================================================================="

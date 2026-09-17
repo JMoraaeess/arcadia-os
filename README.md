@@ -15,6 +15,7 @@
 * **🕹️ Bluetooth Remote Control First:** Full out-of-the-box support for Bluetooth TV remotes (such as the standard G9N9N Bluetooth remote).
 * **⚡ ARM-to-x86 Translation (`libndk`):** Seamlessly executes ARMv7 / ARM64 Android TV APKs on standard x86_64 PC processors.
 * **🛡️ Hardware Identity Spoofing:** Injects certified TV hardware profiles (NVIDIA SHIELD TV `mdarcy`) to unlock the official TV catalog from the Play Store.
+* **🪟 Automated UEFI Dual-Boot:** Auto-detects your existing Windows installation, adds it to the GRUB boot menu with 1080p/4K resolution for TVs, and remembers your last boot choice.
 * **💾 Safe Secondary Drive Installation:** Installs cleanly on a secondary HDD or SSD without altering your primary Windows drive.
 
 ---
@@ -36,6 +37,7 @@ arcadia-os/
 │   └── server.py                   # Lightweight Python bridge and API server
 ├── scripts/
 │   ├── install.sh                  # Interactive Master Installer (1-click)
+│   ├── setup-dualboot.sh           # Automated Windows UEFI dual-boot configurator
 │   ├── setup-waydroid-tv.sh        # Automated Android TV container provisioning
 │   └── setup-remote.sh             # Bluetooth TV remote pairing assistant
 ├── LICENSE                         # MIT Open Source License
