@@ -94,6 +94,14 @@ curl -fsSL https://raw.githubusercontent.com/JMoraaeess/arcadia-os/main/scripts/
 
 ---
 
-## 📄 License
+## 📄 License & Legal Disclaimer
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+> [!NOTE]
+> **Trademarks & Disclaimer:**  
+> Steam, SteamOS, and Steam Deck are trademarks or registered trademarks of Valve Corporation.  
+> Android, Google Play, and Android TV are trademarks of Google LLC.  
+> NVIDIA and SHIELD are trademarks or registered trademarks of NVIDIA Corporation.  
+> ArcadiaOS is an independent, community-driven open-source project. It is not affiliated with, endorsed by, or sponsored by Valve Corporation, Google LLC, NVIDIA Corporation, or any other trademark holder mentioned herein.
+
