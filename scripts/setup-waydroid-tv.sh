@@ -63,13 +63,35 @@ while IFS='=' read -r key value || [ -n "$key" ]; do
     waydroid prop set "$key" "$value"
 done < "$ROOT_DIR/config/shield-props.prop"
 
-log_info "7. Baixando APKs recomendados (Projectivy Launcher & SmartTube)..."
+log_info "7. Baixando APKs essenciais de Smart TV (Lojas e Players)..."
 mkdir -p "$BUILD_DIR/apks"
+
+# Launcher principal de TV (leve, sem anúncios e com canais dinâmicos)
+log_info "   -> Baixando Projectivy Launcher..."
 curl -sL -o "$BUILD_DIR/apks/Projectivy.apk" "https://github.com/spocky/marmite/releases/latest/download/Projectivy_Launcher.apk" || true
+
+# Loja de Aplicativos para TV (Aurora Store - Acessa catálogo da Google Play Store com interface de TV)
+log_info "   -> Baixando Aurora Store (Loja de Aplicativos Google Play TV)..."
+curl -sL -o "$BUILD_DIR/apks/AuroraStore.apk" "https://f-droid.org/repo/com.aurora.store_76.apk" || true
+
+# YouTube dedicado para Smart TV (SmartTube 4K sem anúncios e navegação por controle)
+log_info "   -> Baixando SmartTube 4K..."
 curl -sL -o "$BUILD_DIR/apks/SmartTube.apk" "https://github.com/yuliskov/SmartTube/releases/download/latest/smarttube_stable.apk" || true
 
 log_info "8. Instalando APKs no Arcadia TV..."
 waydroid app install "$BUILD_DIR/apks/Projectivy.apk" 2>/dev/null || true
+waydroid app install "$BUILD_DIR/apks/AuroraStore.apk" 2>/dev/null || true
 waydroid app install "$BUILD_DIR/apks/SmartTube.apk" 2>/dev/null || true
 
-log_success "Ambiente Arcadia TV configurado com sucesso!"
+log_info "9. Verificando Certificação do Google Play Protect..."
+log_info "Caso a Google Play Store oficial mostre 'Dispositivo não certificado':"
+if [ -f "$BUILD_DIR/waydroid_script/main.py" ]; then
+    echo "----------------------------------------------------------------------"
+    echo "ID do Dispositivo para registro no Google Play Services:"
+    sudo "$BUILD_DIR/waydroid_script/venv/bin/python3" "$BUILD_DIR/waydroid_script/main.py" certified || true
+    echo "Acesse https://www.google.com/android/uncertified/ para registrar se necessário."
+    echo "----------------------------------------------------------------------"
+fi
+
+log_success "Ambiente Arcadia TV configurado com sucesso! Loja de aplicativos e apps de TV prontos."
+
